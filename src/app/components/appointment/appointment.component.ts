@@ -16,6 +16,8 @@ export class AppointmentComponent implements OnInit {
   endTime: any;
   guest:any;
   id:String;
+  status:boolean;
+  message:String;
 
   constructor(private authService: AuthServiceService,
     private validateService: ValidateServiceService)
@@ -67,6 +69,11 @@ export class AppointmentComponent implements OnInit {
           this.startTime = ''
           this.endTime = ''
           this.searchTerm = ''
+        }
+        else
+        {
+          this.status = false
+          this.message = 'appointment clashes with off time of guest'
         }
       })
     }      }
