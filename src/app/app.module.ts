@@ -39,7 +39,6 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 5000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-      toastClass: 'toast',
     }),
   ],
   providers: [ValidateServiceService, AuthServiceService, AuthGuard,
