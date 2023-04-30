@@ -16,6 +16,7 @@ import { ValidateServiceService } from './services/validate-service.service';
 import { AuthServiceService } from './services/auth-service.service';
 import { AuthGuard } from './guards/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     TypeaheadModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [ValidateServiceService, AuthServiceService, AuthGuard,
     {

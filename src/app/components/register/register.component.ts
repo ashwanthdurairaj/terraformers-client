@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { ValidateServiceService } from 'src/app/services/validate-service.service';
 import {Router} from '@angular/router'
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,7 +22,8 @@ export class RegisterComponent implements OnInit {
   }
   constructor(private authService: AuthServiceService,
     private validateService: ValidateServiceService,
-    private router: Router) {
+    private router: Router,
+    private toastr: ToastrService) {
 
   }
 
@@ -39,6 +40,7 @@ export class RegisterComponent implements OnInit {
       console.log('Please fill in all fields')
       this.status = false;
       this.message = 'Please fill in all fields'
+      this.toastr.error('Please fill in all fields');
       return false;
     }
     else if(!this.validateService.validateEmail(user.email))
@@ -46,6 +48,7 @@ export class RegisterComponent implements OnInit {
       console.log('Enter the email id properly')
       this.status = false;
       this.message = 'Enter the email id properly';
+      this.toastr.error('Enter the email id properly');
       return false;
     }
     else if(!this.validateService.validateConfirmPassword(user))
@@ -53,21 +56,23 @@ export class RegisterComponent implements OnInit {
       this.status = false;
       console.log('Password and confirm password fields are not the same')
       this.message = 'Password and confirm password fields are not the same';
+      this.toastr.error('Password and confirm password fields are not the same')
       return false;
     }
-    else if(!this.validateService.validatePassword(user.password1))
-    {
-      console.log('Enter the password properly')
-      console.log(user.password1)
-      this.status = false;
-      this.message = 'Enter the password properly';
-      return false;
-    }
+    // else if(!this.validateService.validatePassword(user.password1))
+    // {
+    //   console.log('Enter the password properly')
+    //   console.log(user.password1)
+    //   this.status = false;
+    //   this.message = 'Enter the password properly';
+    //   return false;
+    // }
     else{
       this.authService.register(user).subscribe(data => {
         console.log(data)
       })
-      // this.router.navigate(['/']);
+      this.toastr.success('Registration Successful')
+      this.router.navigate(['/']);
       return true;
     }
     //write the code for form validation her
