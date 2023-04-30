@@ -69,13 +69,20 @@ export class RegisterComponent implements OnInit {
     // }
     else{
       this.authService.register(user).subscribe(data => {
-        console.log(data['message'])
-        this.status = true;
-        this.message = 'Registration Successfully'
-        this.username = ''
-        this.email = ''
-        this.password1 = ''
-        this.password2 = ''
+        // console.log(data['message'])
+        if(data['status'] === 'success')
+        {
+          this.status = true;
+          this.message = 'Registration Successfully'
+          this.username = ''
+          this.email = ''
+          this.password1 = ''
+          this.password2 = ''
+        }
+        else{
+          this.status = false;
+          this.message = 'User already exists, enter different email address'
+        }
       })
       // this.toastr.success('Registration Successful')
       // this.router.navigate(['/']);
