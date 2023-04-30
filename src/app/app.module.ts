@@ -37,8 +37,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 5000,
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-top-center',
       preventDuplicates: true,
+      toastClass: 'toast',
     }),
   ],
   providers: [ValidateServiceService, AuthServiceService, AuthGuard,
