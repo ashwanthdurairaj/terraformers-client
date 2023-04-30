@@ -40,7 +40,8 @@ export class LoginComponent {
     }
     else{
       this.authService.login(user).subscribe(data=>{
-        this.authService.storeUserData(data['token'], data['user'])
+console.log("hello", data)        
+this.authService.storeUserData(data['token'], data['user'])
         this.status = true;
         this.message = 'Login Successful';
         this.router.navigate(['/dashboard'])
