@@ -1,0 +1,26 @@
+<h1>My Profile</h1>
+<form class="form-container" (submit)="onSubmit()">
+    <div class="form-group">
+        <label>Name: </label>
+        <input type="text" name="name" [(ngModel)]="name">
+    </div>
+    <div class="form-group">
+        <label>Email: </label>
+        <input type="text" name="email" [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+        <label>Password: </label>
+        <input type="text" name="password" [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+        <label>Off hours Start Time: </label>
+        <input type="time" name="startTime" [(ngModel)]="startTime">
+    </div>
+    <div class="form-group">
+        <label>Off hours End Time: </label>
+        <input type="time" name="endTime" [(ngModel)]="endTime">
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Click to Edit">
+    </div>
+</form>

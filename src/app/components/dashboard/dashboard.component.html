@@ -1,0 +1,13 @@
+<h1>Appointments</h1>
+<div class="container" *ngFor="let item of dat">
+
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <div class="card-header">{{item.title}}</div>
+      <div class="card-body">
+        <h4 class="card-title">Agenda: {{item.agenda}}</h4>
+        <p class="card-text">Guest: {{item.guest}}</p>
+        <p class="card-text">Start Time: {{item.startTime}}</p>
+        <p class="card-text">End Time: {{item.endTime}}</p>
+      </div>
+    </div>
+  </div>
