@@ -70,9 +70,15 @@ export class RegisterComponent implements OnInit {
     else{
       this.authService.register(user).subscribe(data => {
         console.log(data)
+        this.status = true;
+        this.message = 'Registration Successfully'
+        this.username = ''
+        this.email = ''
+        this.password1 = ''
+        this.password2 = ''
       })
-      this.toastr.success('Registration Successful')
-      this.router.navigate(['/']);
+      // this.toastr.success('Registration Successful')
+      // this.router.navigate(['/']);
       return true;
     }
     //write the code for form validation her
