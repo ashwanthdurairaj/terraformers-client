@@ -29,6 +29,8 @@ export class LoginComponent {
     if(!this.ValidateService.validateLogin(user))
     {
       console.log('Enter all the fields')
+      this.status = false;
+      this.message = 'Enter all the fields';
       return false;
     }
     else if(!this.ValidateService.validateEmail(user.email))

@@ -56,6 +56,8 @@ export class AppointmentComponent implements OnInit {
     console.log(data)
     if(!this.validateService.validateAppointment(data))
     {
+      this.status = false;
+      this.message = 'Enter all fields'
       console.log("Fill all the fields")
     }
     else
