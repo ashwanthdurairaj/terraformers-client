@@ -3,6 +3,6 @@ Due to CORS Error, sometimes login might not occur. So make sure to submit the l
 
 ##the constraints of the scheduler problem
 
-startTime1 <= endTime1
-startTime2 <= endTime2
-All the event times follow the HH:MM format.
+1.startTime1 <= endTime1
+2.startTime2 <= endTime2
+3.All the event times follow the HH:MM format.
