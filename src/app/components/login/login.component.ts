@@ -41,10 +41,19 @@ export class LoginComponent {
     else{
       this.authService.login(user).subscribe(data=>{
 console.log("hello", data)        
-this.authService.storeUserData(data['token'], data['user'])
-        this.status = true;
-        this.message = 'Login Successful';
-        this.router.navigate(['/dashboard'])
+if(data['message'] == 'Invalid Credentials')
+{
+  this.status = false
+  this.message = data['message']
+}
+else
+{
+  this.authService.storeUserData(data['token'], data['user'])
+  this.status = true;
+  this.message = 'Login Successful';
+  this.router.navigate(['/dashboard'])
+
+}
 
       })
       return true;

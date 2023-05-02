@@ -64,16 +64,18 @@ export class AppointmentComponent implements OnInit {
         console.log(data)
         if(data['status'] == 'success')
         {
+          this.status = true;
           this.title = ''
           this.agenda = ''
           this.startTime = ''
           this.endTime = ''
           this.searchTerm = ''
+          this.message = 'Appointment successful'
         }
         else
         {
           this.status = false
-          this.message = 'appointment clashes with off time of guest'
+          this.message = data['message']
         }
       })
     }      }
